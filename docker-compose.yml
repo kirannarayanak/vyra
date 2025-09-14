@@ -1,0 +1,141 @@
+version: '3.8'
+
+services:
+  # Ethereum node (for local development)
+  geth:
+    image: ethereum/client-go:latest
+    container_name: vyra-geth
+    ports:
+      - "8545:8545"
+      - "30303:30303"
+    command: >
+      --dev
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.api eth,net,web3,personal,admin
+      --http.corsdomain "*"
+      --allow-insecure-unlock
+      --networkid 1337
+    environment:
+      - ETH_NETWORK=dev
+    networks:
+      - vyra-network
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    container_name: vyra-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: vyra
+      POSTGRES_USER: vyra
+      POSTGRES_PASSWORD: vyra_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - vyra-network
+
+  # Redis cache
+  redis:
+    image: redis:7-alpine
+    container_name: vyra-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - vyra-network
+
+  # Vyra Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vyra-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - DATABASE_URL=postgres://vyra:vyra_password@postgres:5432/vyra?sslmode=disable
+      - REDIS_URL=redis://redis:6379
+      - RPC_URL=http://geth:8545
+      - CHAIN_ID=1337
+      - LOG_LEVEL=info
+      - JWT_SECRET=your-secret-key-change-this-in-production
+    depends_on:
+      - postgres
+      - redis
+      - geth
+    volumes:
+      - ./backend:/app
+    networks:
+      - vyra-network
+    restart: unless-stopped
+
+  # Vyra Frontend (development)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: vyra-frontend
+    ports:
+      - "19006:19006"
+    environment:
+      - EXPO_PUBLIC_RPC_URL=http://localhost:8545
+      - EXPO_PUBLIC_CHAIN_ID=1337
+      - EXPO_PUBLIC_API_URL=http://localhost:8080
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - vyra-network
+    restart: unless-stopped
+
+  # Monitoring (Prometheus)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: vyra-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - vyra-network
+
+  # Monitoring (Grafana)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: vyra-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - vyra-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  vyra-network:
+    driver: bridge
