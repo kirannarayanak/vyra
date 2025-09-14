@@ -1,10 +1,10 @@
 import { ethers } from 'ethers';
-import { VyraConfig, PaymentRequest, WalletInfo, GasEstimate, TransactionOptions, VyraResponse, SessionKey } from './types';
+import { VyraConfig, PaymentRequest, WalletInfo, GasEstimate, TransactionOptions, VyraResponse, SessionKey, VyraError } from './types';
 
 export class VyraWallet {
   private provider: ethers.Provider;
   private config: VyraConfig;
-  private signer?: ethers.Wallet;
+  private signer?: ethers.Wallet | ethers.HDNodeWallet;
 
   constructor(provider: ethers.Provider, config: VyraConfig) {
     this.provider = provider;
