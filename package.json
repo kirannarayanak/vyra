@@ -1,0 +1,41 @@
+{
+  "name": "vyra",
+  "version": "0.1.0",
+  "description": "Vyra - Instant Payment Rail",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "frontend",
+    "backend",
+    "sdk",
+    "docs"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:contracts\" \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:contracts": "cd contracts && forge build && forge test",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && go run main.go",
+    "build": "npm run build:contracts && npm run build:frontend && npm run build:backend",
+    "build:contracts": "cd contracts && forge build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && go build -o bin/vyra-backend",
+    "test": "npm run test:contracts && npm run test:frontend && npm run test:backend",
+    "test:contracts": "cd contracts && forge test",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && go test ./...",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && golangci-lint run",
+    "format": "npm run format:frontend && npm run format:backend",
+    "format:frontend": "cd frontend && npm run format",
+    "format:backend": "cd backend && go fmt ./..."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
