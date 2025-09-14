@@ -68,7 +68,7 @@ contract DeployScript is Script {
         console.log("Deploying VyraBridge...");
         VyraBridge bridgeContract = new VyraBridge(
             vyraToken,
-            address(0), // L2 bridge address (placeholder)
+            address(0x1111111111111111111111111111111111111111), // L2 bridge address (placeholder)
             treasury,
             admin
         );

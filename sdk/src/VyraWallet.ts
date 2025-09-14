@@ -59,9 +59,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'WALLET_INFO_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -127,9 +128,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'PAYMENT_SEND_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -174,9 +176,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'GAS_ESTIMATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -210,9 +213,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SESSION_KEY_CREATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -236,9 +240,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SESSION_KEY_REVOKE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -261,9 +266,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'MESSAGE_SIGN_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -282,9 +288,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'MESSAGE_VERIFY_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -309,9 +316,10 @@ export class VyraWallet {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'TRANSACTION_HISTORY_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }

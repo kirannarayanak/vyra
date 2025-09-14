@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"os"
 
 	"vyra-backend/internal/config"
 	"vyra-backend/internal/server"
