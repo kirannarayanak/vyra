@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRightIcon, CheckIcon, StarIcon } from '@heroicons/react/24/outline'
 
 const features = [
@@ -52,6 +53,15 @@ export default function Home() {
         
         <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/logo.svg"
+                alt="Vyra Logo"
+                width={80}
+                height={80}
+                className="animate-pulse"
+              />
+            </div>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Vyra (VYR)
             </h1>
