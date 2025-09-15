@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { VyraConfig, InvoiceRequest, SplitPaymentRequest, MerchantStats, PaymentReceipt, VyraResponse } from './types';
+import { VyraConfig, InvoiceRequest, SplitPaymentRequest, MerchantStats, PaymentReceipt, VyraResponse, VyraError } from './types';
 
 export class VyraMerchant {
   private provider: ethers.Provider;
@@ -69,9 +69,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'INVOICE_CREATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -117,9 +118,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'PAYMENT_PROCESS_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -174,9 +176,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SPLIT_PAYMENT_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -213,9 +216,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'MERCHANT_STATS_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -243,9 +247,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'QR_CODE_GENERATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -287,9 +292,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'PAYMENT_RECEIPT_VALIDATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -310,9 +316,10 @@ export class VyraMerchant {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'PAYMENT_HISTORY_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }

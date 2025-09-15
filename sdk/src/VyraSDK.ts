@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { VyraConfig, VyraResponse, NetworkInfo, ErrorInfo } from './types';
+import { VyraConfig, VyraResponse, NetworkInfo, ErrorInfo, VyraError } from './types';
 import { VyraWallet } from './VyraWallet';
 import { VyraMerchant } from './VyraMerchant';
 import { VyraPaymaster } from './VyraPaymaster';
@@ -193,12 +193,13 @@ export class VyraSDK {
   /**
    * Create a standardized error
    */
-  private createError(error: Error, code: string, details?: any): ErrorInfo {
+  private createError(error: Error, code: string, details?: any): VyraError {
     return {
+      name: 'VyraError',
       code,
       message: error.message,
       details,
-    };
+    } as VyraError;
   }
 
   /**

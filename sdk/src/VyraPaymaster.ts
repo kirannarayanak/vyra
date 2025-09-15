@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { VyraConfig, SessionKey, GasEstimate, VyraResponse } from './types';
+import { VyraConfig, SessionKey, GasEstimate, VyraResponse, VyraError } from './types';
 
 export class VyraPaymaster {
   private provider: ethers.Provider;
@@ -55,9 +55,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SESSION_KEY_CREATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -90,9 +91,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SESSION_KEY_REVOKE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -126,9 +128,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SPONSOR_BALANCE_ADD_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -156,9 +159,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SPONSOR_BALANCE_CHECK_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -186,9 +190,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'VYR_AMOUNT_CALCULATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -225,9 +230,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'GAS_ESTIMATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -260,9 +266,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'SESSION_KEY_VALIDATE_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -300,9 +307,10 @@ export class VyraPaymaster {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'PAYMASTER_STATS_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }

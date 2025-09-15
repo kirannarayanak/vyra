@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { VyraConfig, BridgeDeposit, BridgeWithdrawal, VyraResponse } from './types';
+import { VyraConfig, BridgeDeposit, BridgeWithdrawal, VyraResponse, VyraError } from './types';
 
 export class VyraBridge {
   private provider: ethers.Provider;
@@ -47,9 +47,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'DEPOSIT_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -82,9 +83,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'DEPOSIT_PROCESS_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -122,9 +124,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'WITHDRAWAL_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -157,9 +160,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'BRIDGE_STATS_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -187,9 +191,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'VALIDATORS_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -217,9 +222,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'DEPOSIT_STATUS_CHECK_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -247,9 +253,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'WITHDRAWAL_STATUS_CHECK_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -270,9 +277,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'DEPOSIT_HISTORY_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
@@ -293,9 +301,10 @@ export class VyraBridge {
       return {
         success: false,
         error: {
+          name: 'VyraError',
           code: 'WITHDRAWAL_HISTORY_FETCH_FAILED',
           message: (error as Error).message,
-        },
+        } as VyraError,
       };
     }
   }
