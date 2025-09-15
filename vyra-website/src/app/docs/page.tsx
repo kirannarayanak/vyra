@@ -137,7 +137,7 @@ const result = await wallet.sendPayment({
               <section id="quickstart" className="mb-16">
                 <h2 className="text-3xl font-bold mb-6 text-white">Quick Start</h2>
                 <p className="text-gray-300 mb-6">
-                  Get started with Vyra in just a few minutes. Here's how to send your first payment:
+                  Get started with Vyra in just a few minutes. Here&apos;s how to send your first payment:
                 </p>
                 
                 <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
@@ -150,7 +150,7 @@ const result = await wallet.sendPayment({
                 </div>
 
                 <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">What's Next?</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">What&apos;s Next?</h3>
                   <ul className="space-y-3 text-gray-300">
                     <li className="flex items-start gap-3">
                       <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -188,7 +188,7 @@ const result = await wallet.sendPayment({
                   <div className="bg-gray-900 border border-gray-700 rounded-lg p-8">
                     <h3 className="text-2xl font-bold mb-4 text-white">Account Abstraction</h3>
                     <p className="text-gray-300 mb-4">
-                      Vyra uses Account Abstraction (ERC-4337) to provide a web2web2-likeapos;-like experience. 
+                        Vyra uses Account Abstraction (ERC-4337) to provide a web2&apos;-like experience.
                       Users can pay with social login, passkeys, or session keys without managing private keys.
                     </p>
                     <ul className="space-y-2 text-gray-300">
