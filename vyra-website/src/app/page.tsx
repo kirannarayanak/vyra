@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { ArrowRightIcon, CheckIcon, StarIcon, BoltIcon, ShieldCheckIcon, GlobeAltIcon, CreditCardIcon, DevicePhoneMobileIcon, CodeBracketIcon } from '@heroicons/react/24/outline'
 
@@ -190,7 +189,7 @@ export default function Home() {
 
           {/* Live Stats */}
           <div id="stats" className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <div key={stat.name} className="group">
                 <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-white transition-all duration-300 hover:transform hover:scale-105">
                   <div className="text-4xl mb-2">{stat.icon}</div>
@@ -216,7 +215,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <div key={feature.name} className="group">
                 <div className="bg-gray-900 border border-gray-700 rounded-lg p-8 hover:border-white transition-all duration-500 hover:transform hover:scale-105">
                   <div className="w-16 h-16 rounded-lg bg-white text-black flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">

@@ -153,7 +153,7 @@ export default function DemoPage() {
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-white">$2,847</div>
-                      <div className="text-sm text-gray-400">Today's Revenue</div>
+                      <div className="text-sm text-gray-400">Today&apos;s Revenue</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-white">127</div>

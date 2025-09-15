@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeftIcon, CodeBracketIcon, BookOpenIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, CodeBracketIcon, RocketLaunchIcon, BoltIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 export default function DocsPage() {
@@ -188,7 +188,7 @@ const result = await wallet.sendPayment({
                   <div className="bg-gray-900 border border-gray-700 rounded-lg p-8">
                     <h3 className="text-2xl font-bold mb-4 text-white">Account Abstraction</h3>
                     <p className="text-gray-300 mb-4">
-                      Vyra uses Account Abstraction (ERC-4337) to provide a web2-like experience. 
+                      Vyra uses Account Abstraction (ERC-4337) to provide a web2web2-likeapos;-like experience. 
                       Users can pay with social login, passkeys, or session keys without managing private keys.
                     </p>
                     <ul className="space-y-2 text-gray-300">
