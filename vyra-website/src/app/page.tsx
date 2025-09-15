@@ -154,6 +154,8 @@ export default function Home() {
             <h1 className="text-6xl lg:text-8xl font-bold mb-6">
               <AnimatedText text="VYRA" className="text-white" />
             </h1>
+            <div className="text-2xl text-red-500 mb-4 font-bold animate-pulse">🚀 NEW DESIGN IS LIVE! 🚀</div>
+            <div className="text-sm text-cyan-400 mb-4">Cache Bust: {Date.now()}</div>
             <p className="text-2xl lg:text-4xl font-light mb-4 text-gray-300">
               The Future of
             </p>
