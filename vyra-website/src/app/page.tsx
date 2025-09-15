@@ -127,14 +127,8 @@ export default function Home() {
       <nav className="relative z-10 px-6 py-4 border-b border-gray-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10">
-            <Image
-                src="/logo-currency.svg"
-                alt="Vyra Logo"
-                width={40}
-                height={40}
-                className="w-full h-full"
-              />
+            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <span className="text-black font-bold text-xl">V</span>
             </div>
             <span className="text-2xl font-bold text-white">
               Vyra
@@ -155,14 +149,8 @@ export default function Home() {
       <section className="relative z-10 px-6 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className="w-24 h-24 mx-auto mb-8 animate-float">
-          <Image
-                src="/logo-currency.svg"
-                alt="Vyra Logo"
-                width={96}
-                height={96}
-                className="w-full h-full"
-              />
+            <div className="w-24 h-24 mx-auto mb-8 animate-float bg-white rounded-full flex items-center justify-center">
+              <span className="text-black font-bold text-6xl">V</span>
             </div>
             <h1 className="text-6xl lg:text-8xl font-bold mb-6">
               <AnimatedText text="VYRA" className="text-white" />
@@ -311,11 +299,11 @@ export default function Home() {
                   <li className="flex items-center text-gray-300">
                     <StarIcon className="w-5 h-5 text-white mr-3" />
                     IBC/XCMP interoperability
-                  </li>
+          </li>
                   <li className="flex items-center text-gray-300">
                     <StarIcon className="w-5 h-5 text-white mr-3" />
                     Custom consensus mechanism
-                  </li>
+          </li>
                 </ul>
               </div>
             </div>
@@ -363,14 +351,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="w-8 h-8">
-          <Image
-                  src="/logo-currency.svg"
-                  alt="Vyra Logo"
-                  width={32}
-                  height={32}
-                  className="w-full h-full"
-                />
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                <span className="text-black font-bold text-sm">V</span>
               </div>
               <span className="text-xl font-bold text-white">
                 Vyra
