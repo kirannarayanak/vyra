@@ -170,7 +170,8 @@ export default function Home() {
             <h1 className="text-6xl lg:text-8xl font-bold mb-6">
               <AnimatedText text="VYRA" className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent" />
             </h1>
-            <div className="text-sm text-cyan-400 mb-4">🚀 FUTURISTIC DESIGN LOADED - {new Date().toLocaleTimeString()}</div>
+            <div className="text-2xl text-red-500 mb-4 font-bold animate-pulse">🚀 NEW FUTURISTIC DESIGN IS LIVE! 🚀</div>
+            <div className="text-sm text-cyan-400 mb-4">Timestamp: {new Date().toLocaleTimeString()}</div>
             <p className="text-2xl lg:text-4xl font-light mb-4 text-gray-300">
               The Future of
             </p>
