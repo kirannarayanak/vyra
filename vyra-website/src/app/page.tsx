@@ -169,16 +169,16 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
             <Link 
-              href="https://github.com/kirannarayanak/vyra"
+              href="/demo"
               className="group bg-white text-black px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
             >
               <span className="flex items-center gap-2">
-                Launch App
+                Try Live Demo
                 <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
             <Link 
-              href="https://github.com/kirannarayanak/vyra"
+              href="/docs"
               className="group border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-black transition-all duration-300"
             >
               <span className="flex items-center gap-2">
@@ -324,16 +324,16 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link 
-                href="https://github.com/kirannarayanak/vyra"
+                href="/demo"
                 className="group bg-white text-black px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
               >
                 <span className="flex items-center gap-2">
-                  View on GitHub
+                  Try Live Demo
                   <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
               <Link 
-                href="https://github.com/kirannarayanak/vyra"
+                href="/docs"
                 className="group border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-black transition-all duration-300"
               >
                 <span className="flex items-center gap-2">
