@@ -111,7 +111,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-hidden" style={{background: 'linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%)'}}>
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" />
@@ -170,6 +170,7 @@ export default function Home() {
             <h1 className="text-6xl lg:text-8xl font-bold mb-6">
               <AnimatedText text="VYRA" className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent" />
             </h1>
+            <div className="text-sm text-cyan-400 mb-4">🚀 FUTURISTIC DESIGN LOADED - {new Date().toLocaleTimeString()}</div>
             <p className="text-2xl lg:text-4xl font-light mb-4 text-gray-300">
               The Future of
             </p>
